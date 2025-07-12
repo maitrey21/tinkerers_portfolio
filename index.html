@@ -3,438 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maitrey Khedekar - Portfolio</title>
-    <style>
-        /* Basic CSS Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Smooth scrolling for the entire page */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Body Styling */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-
-        /* Header Styling */
-        header {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
-
-        /* Navigation Styling */
-        nav {
-            background-color: #34495e;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #2c3e50;
-        }
-
-        /* Main Content Container */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        /* Section Styling */
-        section {
-            background-color: white;
-            margin: 2rem 0;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            /* Add padding-top to account for sticky navigation */
-            scroll-margin-top: 80px;
-        }
-
-        section h2 {
-            color: #2c3e50;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 0.5rem;
-        }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: #bdc3c7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            flex-shrink: 0;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .skill-item {
-            background-color: #ecf0f1;
-            padding: 1rem;
-            border-radius: 5px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-item h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .project-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1.5rem;
-            background-color: #fafafa;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .project-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .project-card p {
-            margin-bottom: 1rem;
-            color: #666;
-        }
-
-        .project-link {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .project-link:hover {
-            background-color: #2980b9;
-        }
-
-        /* Contact Section */
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 1rem;
-            background-color: #ecf0f1;
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-3px);
-        }
-
-        .contact-item h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-item a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact link colors */
-        .gmail-link {
-            color: #ea4335;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .gmail-link:hover {
-            color: #d32f2f;
-            text-decoration: underline;
-        }
-
-        .linkedin-link {
-            color: #0077b5;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .linkedin-link:hover {
-            color: #005885;
-            text-decoration: underline;
-        }
-
-        .github-link {
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .github-link:hover {
-            color: #000;
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
-        }
-
-        /* Back to top link styling */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #3498db;
-            color: white;
-            padding: 1rem;
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: background-color 0.3s, transform 0.3s;
-            z-index: 1000;
-        }
-
-        .back-to-top:hover {
-            background-color: #2980b9;
-            transform: translateY(-3px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .back-to-top {
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.8rem;
-            }
-        }
-
-        /* Focus styles for accessibility */
-        nav a:focus,
-        .project-link:focus,
-        .contact-item a:focus,
-        .back-to-top:focus {
-            outline: 2px solid #3498db;
-            outline-offset: 2px;
-        }
-    </style>
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section -->
-    <header id="top">
-        <h1>Maitrey Khedekar</h1>
-        <p>Web Developer & Designer</p>
-    </header>
-
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <!-- Fixed Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Portfolio</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Work Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Floating Icons -->
+        <div class="floating-icons">
+            <div class="floating-icon">⚡</div>
+            <div class="floating-icon">💻</div>
+            <div class="floating-icon">🔧</div>
+            <div class="floating-icon">🚀</div>
+            <div class="floating-icon">⚙️</div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Hello, I'm <span class="highlight">Maitrey Khedekar</span></h1>
+            <p class="hero-subtitle">Full Stack Developer & UI/UX Enthusiast</p>
+            <a href="#about" class="cta-button">Get to know me</a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <div class="profile-image">
-                    Profile Photo
+                <div class="about-image">
+                    <img src="/placeholder.svg?height=300&width=300" alt="Profile Picture" class="profile-img">
                 </div>
                 <div class="about-text">
-                    <p>Hello! I'm Maitrey Khedekar, a passionate web developer with 3 years of experience creating beautiful and functional websites. I love turning ideas into reality through code.</p>
-                    <p>I specialize in front-end development and have a keen eye for design. When I'm not coding, you can find me exploring new technologies or enjoying a good book.</p>
+                    <p>I'm a passionate full-stack developer with a love for creating beautiful, functional web applications. With experience in modern web technologies, I enjoy turning complex problems into simple, elegant solutions.</p>
+                    <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee while reading about the latest trends in web development.</p>
+                    <p>I believe in writing clean, maintainable code and creating user experiences that make a difference. Let's build something amazing together!</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>My Skills</h2>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
             <div class="skills-grid">
-                <div class="skill-item">
-                    <h3>HTML</h3>
-                    <p>Structure and markup</p>
+                <div class="skill-card">
+                    <h3>Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <h3>CSS</h3>
-                    <p>Styling and layout</p>
+                <div class="skill-card">
+                    <h3>Backend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <h3>JavaScript</h3>
-                    <p>Interactive functionality</p>
-                </div>
-                <div class="skill-item">
-                    <h3>Responsive Design</h3>
-                    <p>Mobile-friendly layouts</p>
+                <div class="skill-card">
+                    <h3>Tools & Others</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Postman</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>My Projects</h2>
+    <!-- Work Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Frontend Developer</h3>
+                        <p class="company">Tech Solutions Inc.</p>
+                        <p class="duration">Jan 2022 - Present</p>
+                        <ul class="responsibilities">
+                            <li>Led development of responsive web applications using React and TypeScript</li>
+                            <li>Collaborated with UX/UI designers to implement pixel-perfect designs</li>
+                            <li>Mentored junior developers and conducted code reviews</li>
+                            <li>Improved application performance by 40% through optimization techniques</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Full Stack Developer</h3>
+                        <p class="company">Digital Agency Co.</p>
+                        <p class="duration">Jun 2020 - Dec 2021</p>
+                        <ul class="responsibilities">
+                            <li>Developed and maintained client websites using modern web technologies</li>
+                            <li>Built RESTful APIs and integrated third-party services</li>
+                            <li>Implemented responsive designs and ensured cross-browser compatibility</li>
+                            <li>Worked closely with clients to understand requirements and deliver solutions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Junior Web Developer</h3>
+                        <p class="company">StartUp Ventures</p>
+                        <p class="duration">Sep 2019 - May 2020</p>
+                        <ul class="responsibilities">
+                            <li>Assisted in developing web applications using HTML, CSS, and JavaScript</li>
+                            <li>Participated in agile development processes and daily standups</li>
+                            <li>Fixed bugs and implemented minor features under senior guidance</li>
+                            <li>Learned best practices for version control and collaborative development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3>Personal Blog</h3>
-                    <p>A responsive blog website built with HTML, CSS, and JavaScript. Features include article listings, search functionality, and a clean, modern design.</p>
-                    <a href="#" class="project-link">View Project</a>
+                    <div class="project-image">
+                        <img src="/placeholder.svg?height=200&width=350" alt="E-commerce Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>A full-featured e-commerce platform built with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <h3>Restaurant Website</h3>
-                    <p>A beautiful restaurant website showcasing menu items, location information, and online reservation system with an elegant user interface.</p>
-                    <a href="#" class="project-link">View Project</a>
+                    <div class="project-image">
+                        <img src="/placeholder.svg?height=200&width=350" alt="Task Management App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <h3>Portfolio Gallery</h3>
-                    <p>An interactive photo gallery with filtering options and lightbox functionality, perfect for showcasing creative work and projects.</p>
-                    <a href="#" class="project-link">View Project</a>
+                    <div class="project-image">
+                        <img src="/placeholder.svg?height=200&width=350" alt="Weather Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3>Weather Dashboard</h3>
+                        <p>A responsive weather dashboard that displays current weather conditions and forecasts for multiple cities with beautiful data visualizations.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>Email</h3>
-                    <a href="mailto:maitreykhedekar21@gmail.com" class="gmail-link">Gmail</a>
-                </div>
-                <div class="contact-item">
-                    <h3>Phone</h3>
-                    <p>+91 8591553988</p>
-                </div>
-                <div class="contact-item">
-                    <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/maitrey-khedekar/" target="_blank" class="linkedin-link">LinkedIn</a>
-                </div>
-                <div class="contact-item">
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/maitrey21" target="_blank" class="github-link">GitHub</a>
-                </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-subtitle">I'm always open to discussing new opportunities and interesting projects.</p>
+            <div class="contact-links">
+                <a href="https://github.com/maitrey21" class="contact-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/maitrey-khedekar" class="contact-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:maitreykhedekar21@gmail.com?subject=Hello!%20Let's%20connect" class="contact-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <span>Email</span>
+                </a>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Maitrey Khedekar. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Maitrey Khedekar. All rights reserved.</p>
+        </div>
     </footer>
-
-    <!-- Back to Top Link -->
-    <a href="#top" class="back-to-top" title="Back to top">↑</a>
 </body>
 </html>
